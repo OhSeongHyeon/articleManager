@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="articleManager.member.mapper.MemberMapper">
+
+    <select id="findByLoginId" parameterType="string" resultType="articleManager.member.dto.MemberDto">
+        SELECT
+            *
+        FROM
+            `member`
+        WHERE 1=1
+        AND loginId = #{loginId}
+    </select>
+
+    <insert id="join" parameterType="articleManager.member.dto.MemberDto">
+        INSERT INTO `member` (
+            id
+        ,   regDate
+        ,   updateDate
+        ,   loginId
+        ,   loginPw
+        ,   `authLevel`
+        ,   `name`
+        ,   nickname
+        ,   cellphoneNum
+        ,   email
+        ,   delStatus
+        ,   delDate
+        ) VALUES (
+            NULL
+        ,   NOW()
+        ,   NOW()
+        ,   #{loginId}
+        ,   #{loginPw}
+        ,   3
+        ,   #{name}
+        ,   #{nickname}
+        ,   #{cellphoneNum}
+        ,   #{email}
+        ,   0
+        ,   NULL
+        )
+    </insert>
+
+</mapper>
