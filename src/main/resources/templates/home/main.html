@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>메인 페이지</title>
-</head>
-<body>
-    <h1>메인 페이지</h1>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{shared/layout}">
 
+<th:block layout:fragment="title">
+    <title>메인 페이지</title>
+</th:block>
 
+<th:block layout:fragment="body-content">
     <ul>
-        <li><a href="../article/list">리스트로 이동</a></li>
-        <li><a href="../article/write">글쓰기</a></li>
-        <li><a href="../member/join">회원가입</a></li>
-        <li><a href="../member/login">로그인</a></li>
+        <li><a href="/article/list">리스트로 이동</a></li>
+        <li><a href="/article/write">글쓰기</a></li>
+        <li><a href="/member/join">회원가입</a></li>
+        <li><a href="/member/login">로그인</a></li>
     </ul>
+</th:block>
 
-</body>
 </html>

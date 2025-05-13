@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{shared/layout}">
+
+<th:block layout:fragment="title">
+    <title>로그인 페이지</title>
+</th:block>
+
+<th:block layout:fragment="body-content">
     <h1>로그인</h1>
 
-    <form action="/member/login" method="post">
-        <p>
-            <strong>아이디</strong>
-            <input type="text" name="loginId" placeholder="아이디 입력">
-        </p>
-        <p>
-            <strong>비밀번호</strong>
-            <input type="password" name="loginPw" placeholder="비밀번호 입력">
-        </p>
-        <p>
-            <input type="submit" value="제출">
-        </p>
-    </form>
+    <section class="mt-8 text-xl px-4">
+        <div class="mx-auto">
+            <form action="/member/login" method="POST">
+                <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <th>아이디</th>
+                            <td style="text-align: center;">
+                                <input type="text" name="loginId" autocomplete="off" placeholder="아이디 입력" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>비밀번호</th>
+                            <td style="text-align: center;">
+                                <input type="password" name="loginPw" autocomplete="off" placeholder="비밀번호 입력" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td style="text-align: center;">
+                                <input value="로그인" type="submit" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="btns">
+                <button type="button" onclick="history.back();">뒤로가기</button>
+            </div>
+        </div>
+    </section>
+
     <a href="../member/join">회원가입</a>
     <a href="/">메인 페이지로 이동</a>
-</body>
+
+</th:block>
+
 </html>
+
