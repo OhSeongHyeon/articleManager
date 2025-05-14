@@ -5,18 +5,70 @@
 
     <select id="getArticleList" resultType="articleManager.article.dto.ArticleDto">
         SELECT
-            *
+            a.id
+        ,   a.regDate
+        ,   a.updateDate
+        ,   a.title
+        ,   a.body
+        ,   m.id AS memberId
+        ,   m.loginId
+        ,   m.authLevel
+        ,   m.name
+        ,   m.nickname
+        ,   m.cellphoneNum
+        ,   m.email
+        ,   m.delStatus AS memberDelStatus
+        ,   m.delDate AS memberDelDate
+        ,   b.id AS boardId
+        ,   b.`code` AS boardCode
+        ,   b.`name` AS boardName
+        ,   b.delStatus AS boardDelStatus
+        ,   b.delDate AS boardDelDate
         FROM
-            article;
+            article AS a
+        INNER JOIN
+            `member` AS m
+        ON
+            a.memberId = m.id
+        INNER JOIN
+            board AS b
+        ON
+            b.id = a.boardId;
     </select>
     
     <select id="findArticleById" parameterType="long" resultType="articleManager.article.dto.ArticleDto">
         SELECT
-            *
+            a.id
+        ,   a.regDate
+        ,   a.updateDate
+        ,   a.title
+        ,   a.body
+        ,   m.id AS memberId
+        ,   m.loginId
+        ,   m.authLevel
+        ,   m.name
+        ,   m.nickname
+        ,   m.cellphoneNum
+        ,   m.email
+        ,   m.delStatus AS memberDelStatus
+        ,   m.delDate AS memberDelDate
+        ,   b.id AS boardId
+        ,   b.`code` AS boardCode
+        ,   b.`name` AS boardName
+        ,   b.delStatus AS boardDelStatus
+        ,   b.delDate AS boardDelDate
         FROM
-            article
+            article AS a
+        INNER JOIN
+            `member` AS m
+        ON
+            a.memberId = m.id
+        INNER JOIN
+            board AS b
+        ON
+            b.id = a.boardId;
         WHERE
-            id = #{id};
+            a.id = #{id};
     </select>
 
 

@@ -35,7 +35,7 @@ public class MemberApiController {
             return ResponseEntity.status(HttpStatus.OK).body("아이디 또는 비밀번호가 올바르지 않습니다.");
         }
         session.setAttribute("loginId", login.getLoginId());
-        session.setAttribute("member", login.asMap());
+        //session.setAttribute("member", login.asMap());
         log.info("{}",session.getAttribute("member"));
         return ResponseEntity.status(HttpStatus.OK).body(login);
     }

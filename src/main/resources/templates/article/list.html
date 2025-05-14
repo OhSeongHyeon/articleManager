@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시글 목록</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{shared/layout}">
 
-</body>
+<th:block layout:fragment="title">
+    <title>작성글 리스트</title>
+</th:block>
+
+<th:block layout:fragment="body-content">
+
+    <section class="mt-24 text-xl px-4">
+        <div class="mx-auto">
+            <table class="table" border="1" cellspacing="0" cellpadding="5" style="width: 100%; border-collapse: collapse;">
+    
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">Registration Date</th>
+                        <th style="text-align: center;">Title</th>
+                        <th style="text-align: center;">Writer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-base-300" th:if="${articles != null}" th:each="article : ${articles}">
+                        <td style="text-align: center;" th:text="${article.id}"></td>
+                        <td style="text-align: center;" th:text="${#temporals.format(article.regDate, 'yyyy-MM-dd')}"></td>
+                        <td style="text-align: center;" th:text="${article.title}">
+                            <a class="hover:underline" href="#"></a>
+                        </td>
+                        <td style="text-align: center;" th:text="${article.body}"></td>
+                    </tr>
+                    <tr th:if="${articles == null}">
+                        <td colspan="4" style="text-align: center;">게시글이 없습니다</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</th:block>
+
 </html>

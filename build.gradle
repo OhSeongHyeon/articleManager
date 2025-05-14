@@ -29,7 +29,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16' // https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
-    //implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    //implementation 'io.github.cdimascio:dotenv-java:3.0.0' // .env
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' //html 헤더 푸터 재사용 레이아웃
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

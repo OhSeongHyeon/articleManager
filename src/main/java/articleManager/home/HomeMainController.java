@@ -11,7 +11,12 @@ public class HomeMainController {
 
     @GetMapping("/")
     public String index() {
-        return "home/main";
+        return "/home/main";
+    }
+    
+    @GetMapping("/home/main")
+    public String redirectIndex() {
+        return "/home/main";
     }
 
 }
